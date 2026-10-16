@@ -86,4 +86,12 @@ public class VendorTest {
         assertEquals("Candy costs 1.25 and there is 10 left",vendor.getInfo("Candy"));
     }
 
+    @Test
+    void itemDiscount(){
+        vendor = new Vending(10,10);
+        assertEquals(vendor.getInfo("Candy"),"Candy costs 1.25 and there is 10 left");
+        vendor.discount("Candy",0.99);
+        assertEquals(vendor.getInfo("Candy"),"Candy costs 0.99 and there is 10 left");
+    }
+
 }

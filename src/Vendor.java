@@ -75,6 +75,16 @@ class Vending {
         }
     }
 
+    void discount  (String name, double amt){
+        if (Stock.containsKey(name)) {
+            Item item = Stock.get(name);
+            item.discount(amt);
+        }
+        else {
+            return;
+        }
+    }
+
     /** attempt to purchase named item.  Message returned if
      * the balance isn't sufficient to cover the item cost.
      *

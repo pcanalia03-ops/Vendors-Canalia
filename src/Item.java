@@ -22,4 +22,8 @@ class Item {
     double getPrice() {
         return price;
     }
+
+    void discount (double amount) {
+        this.price = amount;
+    }
 }
