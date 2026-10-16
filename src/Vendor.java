@@ -20,6 +20,10 @@ class Vending {
         this.balance = 0;
     }
 
+    void addStock(String name, int amt){
+        Stock.get(name).restock(amt);
+    }
+
     int getStock (String name) {
         if (Stock.containsKey(name)) {
             Item item = Stock.get(name);
