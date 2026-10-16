@@ -65,6 +65,16 @@ class Vending {
         return(purchases.toString());
     }
 
+    String getInfo(String name){
+        if (Stock.containsKey(name)) {
+            Item item = Stock.get(name);
+            return (name + " costs " + item.getPrice() + " and there is " + item.getStock() + " left");
+        }
+        else {
+            return("no info");
+        }
+    }
+
     /** attempt to purchase named item.  Message returned if
      * the balance isn't sufficient to cover the item cost.
      *

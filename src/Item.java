@@ -18,4 +18,8 @@ class Item {
     int getStock() {
         return stock;
     }
+
+    double getPrice() {
+        return price;
+    }
 }

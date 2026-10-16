@@ -80,4 +80,10 @@ public class VendorTest {
         assertEquals("[Candy, Gum]",vendor.listPurchases());
     }
 
+    @Test
+    void itemDescription(){
+        vendor = new Vending(10,10);
+        assertEquals("Candy costs 1.25 and there is 10 left",vendor.getInfo("Candy"));
+    }
+
 }
