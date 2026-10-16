@@ -20,8 +20,16 @@ class Vending {
         this.balance = 0;
     }
 
-    void addStock(String name, int amt){
+    void restock(String name, int amt){
         Stock.get(name).restock(amt);
+
+    }
+
+    void nameChange(String name, String newName) {
+        if (Stock.containsKey(name)) {
+            Stock.put(newName, Stock.get(name));
+            Stock.remove(name);
+        }
     }
 
     int getStock (String name) {
@@ -64,6 +72,7 @@ class Vending {
                     return ("Gimme more money");
             }
             else {
+                item.restock(10);
                 return ("Out of stock");
             }
 

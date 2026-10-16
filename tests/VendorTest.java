@@ -50,8 +50,16 @@ public class VendorTest {
     void addStock() {
         vendor = new Vending(0,10);
         assertEquals(vendor.getStock("Candy"),0);
-        vendor.addStock("Candy",10);
+        vendor.restock("Candy",10);
         assertEquals(vendor.getStock("Candy"),10);
+    }
+
+    @Test
+    void renameStock() {
+        vendor = new Vending(10,10);
+        assertEquals(vendor.getStock("Candy"),10);
+        vendor.nameChange("Candy", "New Candy");
+        assertEquals(vendor.getStock("New Candy"),10);
     }
 
 }
