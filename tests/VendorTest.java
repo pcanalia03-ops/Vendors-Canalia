@@ -70,4 +70,14 @@ public class VendorTest {
         assertEquals(vendor.getStock("Candy"),0);
     }
 
+    @Test
+    void purchaseList(){
+        vendor = new Vending(10,10);
+        vendor.addMoney(10);
+        vendor.select("Candy");
+        assertEquals("[Candy]",vendor.listPurchases());
+        vendor.select("Gum");
+        assertEquals("[Candy, Gum]",vendor.listPurchases());
+    }
+
 }

@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /**
@@ -8,6 +10,7 @@ import java.util.HashMap;
 class Vending {
     private static HashMap<String, Item> Stock = new HashMap<String,Item>();
     private double balance;
+    ArrayList<String> purchases = new ArrayList<>();
 
     Vending(int numCandy, int numGum) {
         Stock.put("Candy", new Item(1.25, numCandy));
@@ -58,6 +61,10 @@ class Vending {
         this.balance = this.balance + amt;
     }
 
+    String listPurchases(){
+        return(purchases.toString());
+    }
+
     /** attempt to purchase named item.  Message returned if
      * the balance isn't sufficient to cover the item cost.
      *
@@ -70,7 +77,8 @@ class Vending {
                 if (balance >= item.price) {
                     item.purchase(1);
                     this.balance = this.balance - item.price;
-                    return (name + "sold");
+                    purchases.add(name);
+                    return (name + " sold");
                 }
                 else
                     return ("Gimme more money");
