@@ -47,17 +47,24 @@ class Vending {
      *
      * @param name The name of the item to purchase ("Candy" or "Gum")
      */
-    void select (String name) {
+    String select (String name) {
         if (Stock.containsKey(name)) {
             Item item = Stock.get(name);
-            if (balance >= item.price) {
-                item.purchase(1);
-                this.balance = this.balance - item.price;
+            if (item.getStock() > 0) {
+                if (balance >= item.price) {
+                    item.purchase(1);
+                    this.balance = this.balance - item.price;
+                    return (name + "sold");
+                }
+                else
+                    return ("Gimme more money");
             }
-            else
-                System.out.println("Gimme more money");
+            else {
+                return ("Out of stock");
+            }
+
         }
-        else System.out.println("Sorry, don't know that item");
+        else return ("Sorry, don't know that item");
     }
 
 }

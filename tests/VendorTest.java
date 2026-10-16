@@ -27,4 +27,23 @@ public class VendorTest {
         assertEquals(vendor.getBalance(),8.75);
     }
 
+    @Test
+    void emptyStock() {
+        int amt = 5;
+        vendor = new Vending(amt,amt);
+        vendor.addMoney(10);
+        assertEquals(vendor.getStock("Candy"),amt);
+        for (int i = 0; i < amt; i++) {
+            vendor.select("Candy");
+        }
+        assertEquals(vendor.getStock("Candy"),0);
+        assertEquals("Out of stock",vendor.select("Candy"));
+        assertEquals(vendor.getStock("Gum"),amt);
+        for (int i = 0; i < amt; i++) {
+            vendor.select("Gum");
+        }
+        assertEquals(vendor.getStock("Gum"),0);
+        assertEquals("Out of stock",vendor.select("Gum"));
+    }
+
 }
