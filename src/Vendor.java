@@ -32,6 +32,10 @@ class Vending {
         }
     }
 
+    void removeItem(String name){
+        Stock.remove(name);
+    }
+
     int getStock (String name) {
         if (Stock.containsKey(name)) {
             Item item = Stock.get(name);
