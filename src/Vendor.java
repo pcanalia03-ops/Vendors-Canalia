@@ -20,6 +20,16 @@ class Vending {
         this.balance = 0;
     }
 
+    int getStock (String name) {
+        if (Stock.containsKey(name)) {
+            Item item = Stock.get(name);
+            return(item.getStock());
+        }
+        else {
+            return 0;
+        }
+    }
+
     /** returns the current balance */
     double getBalance () {
         return this.balance;
